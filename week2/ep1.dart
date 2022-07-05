@@ -1,27 +1,5 @@
-import 'dart:io' show stdin,stdout;
-
-
-void main (List<String> arguments){
-
-  void main(List<String> args) {
-  int binaryNum;
-  stdout.write('Enter the Decimal Number: ');
-  int decimalNum = int.parse(stdin.readLineSync()!);
-}
-
-void DecimalTobinary(decimalNum){
-  int binaryNum=0,mul=1,rem;
-  while(decimalNum>0){
-    rem = decimalNum%2;
-    binaryNum = binaryNum+(remmul);
-    mul = mul10;
-    decimalNum + decimalNum/2;
-  }
-
-
-}}
 import 'dart:io' show stdin, stdout;
-import 'work.dart';
+import 'dart:math';
 
 int main() {
   double? numOne, numTwo, res;

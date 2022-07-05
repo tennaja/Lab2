@@ -1,4 +1,5 @@
 import 'dart:io' show stdin,stdout;
+import 'dart:math';
 
 int main (List<String> arguments){
   int binaryNum,decimalNum;

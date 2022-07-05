@@ -1,4 +1,5 @@
-3.
+import 'dart:io' show stdin,stdout;
+
 void main(){
   List<String> binary = [];
   print('Decimal Number \t\t Binary Number');

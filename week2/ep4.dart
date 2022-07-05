@@ -1,3 +1,5 @@
+import 'dart:io' show stdin,stdout;
+
 void main(){
   List<String> binary = [];
   print('Enter the Decimal Number: ');
