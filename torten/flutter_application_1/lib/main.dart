@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "fdsfdsfdsfdsfds",
       home: Myhomepage(),
-      theme: ThemeData(primarySwatch: Colors.red),
+      theme: ThemeData(primarySwatch: Colors.yellow),
     );
   }
 }
@@ -26,23 +26,27 @@ class _MyhomepageState extends State<Myhomepage> {
   int number = 0;
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: Text("App budsop"),
       ),
       body: Center(
-          child: ListView(
-         children: getData(15),
-      ),
+        child: ListView(
+          children: getData(20),
+        ),
       ),
     );
   }
-  List<Widget> getData(int count){
-     List<Widget> data = [];
-     for(var i=0; i<10; i++){
-      data.add(Text("รายการ ${i+1}",style: TextStyle(fontSize: 15),));
 
+  List<Widget> getData(int count) {
+    List<Widget> data = [];
+    for (var i = 0; i < 10; i++) {
+      var menu = ListTile(
+        title: Text("เมนูที่ {$i+1}",style: TextStyle(fontSize: 25),),
+        subtitle: Text("หัวข้อย่อยชื่อ ${i + 1}"),
+      );
+      data.add(menu);
     }
-return data;
+    return data;
   }
 }
