@@ -43,8 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text("App budsop"),
       ),
       body: Center(
-        child: Text("namotussapakkawutto",style: TextStyle(fontSize : 30 , color: Colors.blue),
+        child: Image( image : NetworkImage("https://img1.hotstarext.com/image/upload/f_auto,t_web_hm_s/sources/r1/cms/prod/1534/651534-s") ),
       ) 
-    ));
+    );
   }
 }
