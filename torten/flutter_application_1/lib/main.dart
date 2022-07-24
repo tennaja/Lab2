@@ -1,50 +1,50 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'test',
-      theme: ThemeData(
-       
-        primarySwatch: Colors.yellow,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      title: "fdsfdsfdsfdsfds",
+      home: Myhomepage(),
+      theme: ThemeData(primarySwatch: Colors.red),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class Myhomepage extends StatefulWidget {
+  const Myhomepage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<Myhomepage> createState() => _MyhomepageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-   @override
+class _MyhomepageState extends State<Myhomepage> {
+  int number = 0;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("App budsop"),
       ),
       body: Center(
-        child: Image( image : NetworkImage("https://img1.hotstarext.com/image/upload/f_auto,t_web_hm_s/sources/r1/cms/prod/1534/651534-s") ),
-      ) 
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text("กดปุ่มเพื่อเพิ่มจำนวน"),
+          Text(
+            number.toString(),
+            style: TextStyle(fontSize: 60, color: Colors.deepOrange),
+          ),
+        ],
+      )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
