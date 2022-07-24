@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'foodmnu.dart';
 void main() {
@@ -22,9 +24,9 @@ class Myhomepage extends StatefulWidget {
 }
 class _MyhomepageState extends State<Myhomepage> {
   List<Foodmenu> menu=[
-    Foodmenu("กุ้งเผา","5000"),
-    Foodmenu("กระเพรา","80"),
-    Foodmenu("ส้มตำ", "60")
+    Foodmenu("กุ้งเผา","5000","assets/images/กุ้งเผา.jpg"),
+    Foodmenu("กระเพรา","80","assets/images/กระเพรา1.jpg"),
+    Foodmenu("ส้มตำ", "60","assets/images/ส้มตำ.jpg")
   ];
 
   @override
@@ -38,6 +40,7 @@ class _MyhomepageState extends State<Myhomepage> {
           itemBuilder: (BuildContext context, int index) {
           Foodmenu food=menu[index];
           return ListTile(
+            leading: Image.asset(food.ing),
             title: Text(food.name,style: TextStyle(fontSize: 20),),
             subtitle: Text("ราคา"+food.price+"บาท"),
           );
