@@ -26,29 +26,23 @@ class _MyhomepageState extends State<Myhomepage> {
   int number = 0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return Scaffold(
       appBar: AppBar(
         title: Text("App budsop"),
       ),
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text("กดปุ่มเพื่อเพิ่มจำนวน"),
-          Text(
-            number.toString(),
-            style: TextStyle(fontSize: 60, color: Colors.deepOrange),
-          ),
-        ],
-      )),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            number++;
-          });
-        },
-        child: Icon(Icons.add),
+          child: ListView(
+         children: getData(15),
+      ),
       ),
     );
+  }
+  List<Widget> getData(int count){
+     List<Widget> data = [];
+     for(var i=0; i<10; i++){
+      data.add(Text("รายการ ${i+1}",style: TextStyle(fontSize: 15),));
+
+    }
+return data;
   }
 }
