@@ -42,7 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text("App budsop"),
       ),
-      body: Text("namotussapakkawutto")
-    );
+      body: Center(
+        child: Text("namotussapakkawutto",style: TextStyle(fontSize : 30 , color: Colors.blue),
+      ) 
+    ));
   }
 }
