@@ -18,6 +18,6 @@ int DecimalTobinary(int decimalNum){
     mul = mul10;
     decimalNum = (decimalNum/2).floor();
   }
-  return binaryNum;
+  return binaryNum;//12231231
 
 }
