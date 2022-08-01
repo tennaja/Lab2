@@ -1,3 +1,4 @@
+import 'package:flut_and_database/screen/form-screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -47,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       onPressed: () {
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return Text("screen 2");
+          return FormScreen();
         }));
       },
     )
