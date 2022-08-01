@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -25,8 +24,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  
-
   final String title;
 
   @override
@@ -34,28 +31,42 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-   @override
+  @override
   Widget build(BuildContext context) {
-   
     return Scaffold(
-      appBar: AppBar(
-         backgroundColor: Colors.black,
-        title: Text(widget.title),
-        actions: <Widget>[
-    IconButton(
-      icon: Icon(
-        Icons.settings,
-        color: Colors.white,
-      ),
-      onPressed: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context){
-          return FormScreen();
-        }));
-      },
-    )
-  ],
-      ),
-      body: Container(
-
-      )
-);}}
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          title: Text(widget.title),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return FormScreen();
+                }));
+              },
+            )
+          ],
+        ),
+        body: ListView.builder(
+          itemBuilder: (context, int index) {
+            return Card(
+              elevation: 5,
+              margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+              child: ListTile(
+                leading: CircleAvatar(
+                  radius: 30,
+                    child: FittedBox(
+                  child: Text("500"),
+                )),
+                title: Text("รายการ"),
+                subtitle: Text("02/01/2021"),
+              ),
+            );
+          },
+        ));
+  }
+}
