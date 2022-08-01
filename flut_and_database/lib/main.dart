@@ -2,6 +2,7 @@ import 'package:flut_and_database/models/Transaction.dart';
 import 'package:flut_and_database/providers/transaction_provider.dart';
 import 'package:flut_and_database/screen/form-screen.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 
@@ -81,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: Text(data.amount.toString()),
                       )),
                   title: Text(data.title),
-                  subtitle: Text(data.date.toString()),
+                  subtitle: Text(DateFormat("dd/mm/yyy").format(data.date)),
                 ));
               });
          }
