@@ -1,5 +1,7 @@
+import 'package:flut_and_database/providers/transaction_provider.dart';
 import 'package:flut_and_database/screen/form-screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,16 +9,21 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create : (context){
+          return TransactionProvider();
+        })
+      ],
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const MyHomePage(title: 'Flutter Demo Home Page'),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -40,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: <Widget>[
             IconButton(
               icon: Icon(
-                Icons.settings,
+                Icons.add,
                 color: Colors.white,
               ),
               onPressed: () {
@@ -58,10 +65,10 @@ class _MyHomePageState extends State<MyHomePage> {
               margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
               child: ListTile(
                 leading: CircleAvatar(
-                  radius: 30,
+                    radius: 30,
                     child: FittedBox(
-                  child: Text("500"),
-                )),
+                      child: Text("500"),
+                    )),
                 title: Text("รายการ"),
                 subtitle: Text("02/01/2021"),
               ),
