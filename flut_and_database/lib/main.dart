@@ -62,9 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Consumer(builder: (context, TransactionProvider provider, Widgetchild) {
           return ListView.builder(
-              itemCount: provider.transaction.length,
+              itemCount: provider.transactions.length,
               itemBuilder: (context, int index) {
-                Transaction data = provider.transaction[index];
+                Transaction data = provider.transactions[index];
                 return Card(
                     child: ListTile(
                   leading: CircleAvatar(

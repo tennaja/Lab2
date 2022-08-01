@@ -1,4 +1,8 @@
+import 'package:flut_and_database/providers/transaction_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../models/Transaction.dart';
+
 
 class FormScreen extends StatelessWidget {
   FormScreen({Key? key}) : super(key: key);
@@ -20,8 +24,7 @@ class FormScreen extends StatelessWidget {
               children: [
                 TextFormField(
                   decoration: new InputDecoration(
-                    fillColor: Colors.grey,
-                    focusColor: Colors.grey,
+                    
                     labelText: "ชื่อรายการ",
                     enabledBorder: OutlineInputBorder(
                       borderSide:
@@ -71,13 +74,19 @@ class FormScreen extends StatelessWidget {
                   child: Text("เพิ่มข้อมูล"),
                   color: Colors.yellowAccent,
                   onPressed: () {
-                    var validate = formkey.currentState?.validate();
-                    if (validate!) {
+                    if (formkey.currentState!.validate()) {
                       var title = titleConTroller.text;
                       var amount = amountConTroller.text;
 
-                      print(title);
-                      print(amount);
+                      Transaction statement = Transaction(
+                        title: title,
+                        amount: double.parse(amount),
+                        date: DateTime.now()
+
+                      );
+                      var provider = Provider.of<TransactionProvider>(context,
+                          listen: false);
+                      provider.addTransaction(statement);
                       Navigator.pop(context);
                     }
                   },
