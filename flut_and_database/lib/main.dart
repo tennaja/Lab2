@@ -60,9 +60,17 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        body: Consumer(builder: (context, TransactionProvider provider, Widgetchild) {
+        body: Consumer(
+          
+          builder: (context, TransactionProvider provider, child) {
+          var count = provider.transactions.length;
+         if(count<0){
+          return Center(
+            child: Text("ไม่พบข้อมูล" ,style:  TextStyle(fontSize: 40),),
+          );
+         }else {
           return ListView.builder(
-              itemCount: provider.transactions.length,
+              itemCount: count,
               itemBuilder: (context, int index) {
                 Transaction data = provider.transactions[index];
                 return Card(
@@ -76,6 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   subtitle: Text(data.date.toString()),
                 ));
               });
+         }
         }));
   }
 }
