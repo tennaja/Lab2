@@ -39,6 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
    
     return Scaffold(
       appBar: AppBar(
+         backgroundColor: Colors.black,
         title: Text(widget.title),
         actions: <Widget>[
     IconButton(
