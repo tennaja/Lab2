@@ -4,6 +4,7 @@ import 'package:flut_and_database/screen/form-screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create : (context){
+        ChangeNotifierProvider(create: (context) {
           return TransactionProvider();
         })
       ],
@@ -59,30 +60,22 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ),
-        body: Consumer (
-          builder: (context,TransactionProvider provider,Widget child){
-             ListView.builder(
+        body: Consumer(builder: (context, TransactionProvider provider, Widgetchild) {
+          return ListView.builder(
               itemCount: provider.transaction.length,
-              itemBuilder: (context ,int index){
+              itemBuilder: (context, int index) {
                 Transaction data = provider.transaction[index];
-               return Card (
-                child : ListTile (
-                  leading:  CircleAvatar(
-                    radius: 30,
-                    child : FittedBox(
-                      child: Text(data.amount.toString()),
-                    )
-
-                  ),
-                  title:  Text(data.title),
+                return Card(
+                    child: ListTile(
+                  leading: CircleAvatar(
+                      radius: 30,
+                      child: FittedBox(
+                        child: Text(data.amount.toString()),
+                      )),
+                  title: Text(data.title),
                   subtitle: Text(data.date.toString()),
-                   
-                )
-
-               );
-             });
-  }));}
-          }
-        
-  
-
+                ));
+              });
+        }));
+  }
+}
