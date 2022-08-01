@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
           return ListView.builder(
               itemCount: count,
               itemBuilder: (context, int index) {
-                Transaction data = provider.transactions[index];
+                Transactions data = provider.transactions[index];
                 return Card(
                     child: ListTile(
                   leading: CircleAvatar(
