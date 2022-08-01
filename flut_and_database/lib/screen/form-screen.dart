@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class FormScreen extends StatelessWidget {
-  const FormScreen({Key? key}) : super(key: key);
-
+  FormScreen({Key? key}) : super(key: key);
+  final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +27,15 @@ class FormScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),),
                 ),
                 autofocus: true,
+                validator: (String str){
+                  if(str.isEmpty){
+                    return "กรุณาป้อนชื่อรายการ";
+                  }
+                  if(double.parse(str)){
+                    return "กรุณาป้อนตัวเลขมากกว่า 0";
+                  }
+                  return null;
+                },
             ),
             SizedBox(
               height: 20,
@@ -41,6 +50,12 @@ class FormScreen extends StatelessWidget {
                   borderRadius: BorderRadius.circular(15),),
                 ),
                 keyboardType: TextInputType.number,
+                validator: (String str){
+                    if(str.isEmpty){
+                    return "กรุณาป้อนจำนวนเงิน";
+                  }
+                  return null;
+                },
             ),
             
                 SizedBox(
@@ -51,7 +66,8 @@ class FormScreen extends StatelessWidget {
                   child: Text("เพิ่มข้อมูล"),
                   color: Colors.yellowAccent,
                   onPressed: (){
-                    Navigator.pop(context);
+                    if(formkey.currentState.validate()){
+                    Navigator.pop(context);}
                   },
                   )
               ],
