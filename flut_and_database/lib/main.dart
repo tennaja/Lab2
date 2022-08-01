@@ -46,7 +46,9 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.white,
       ),
       onPressed: () {
-        // do something
+        Navigator.push(context, MaterialPageRoute(builder: (context){
+          return Text("screen 2");
+        }));
       },
     )
   ],
