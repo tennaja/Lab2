@@ -17,14 +17,17 @@ class TransactionDB{
 
  }
   
-  InsertData(Transactions statement) async{
+  Future <int> InsertData(Transactions statement) async{
     var db = await this.openDatabase();
     var store = intMapStorefactory.store("expense");
 
-    store.add(db,{
+    var keyID=store.add(db,{
       "title":statement.title,
       "amount":statement.amount,
-      "date":statement.date,
+      "date":statement.date.toIso8601String(),
       });
+   
+    db.close();
+    return keyID;
   }
 }
