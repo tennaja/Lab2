@@ -9,6 +9,12 @@ class TransactionProvider with ChangeNotifier{
     return transactions;
   }
 
+  void initData() async{
+    var db = TransactionDB(dbname: "transaction.db");
+    transactions = await db.loadAllData();
+    notifyListeners();
+  }
+  
   void addTransaction(Transactions statement) async{
     //var db = await TransactionDB(dbname: "transaction.db").openDatabase();
     //print(db);
