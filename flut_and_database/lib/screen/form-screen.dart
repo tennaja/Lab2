@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../models/Transaction.dart';
 
-
 class FormScreen extends StatelessWidget {
   FormScreen({Key? key}) : super(key: key);
   final formkey = GlobalKey<FormState>();
@@ -24,7 +23,6 @@ class FormScreen extends StatelessWidget {
               children: [
                 TextFormField(
                   decoration: new InputDecoration(
-                    
                     labelText: "ชื่อรายการ",
                     enabledBorder: OutlineInputBorder(
                       borderSide:
@@ -79,11 +77,9 @@ class FormScreen extends StatelessWidget {
                       var amount = amountConTroller.text;
 
                       Transactions statement = Transactions(
-                        title: title,
-                        amount: double.parse(amount),
-                        date: DateTime.now()
-
-                      );
+                          title: title,
+                          amount: double.parse(amount),
+                          date: DateTime.now());
                       var provider = Provider.of<TransactionProvider>(context,
                           listen: false);
                       provider.addTransaction(statement);
