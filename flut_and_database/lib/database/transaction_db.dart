@@ -31,12 +31,18 @@ class TransactionDB{
     return keyID;
   }
 
-  loadAllData() async{
+  Future <List<Transactions>>loadAllData() async{
      var db = await this.openDatabase();
      var store = intMapStoreFactory.store("expense");
      var snapshot = await store.find(db);
-     
+     List transactionList = List<Transactions>();
+     for (var record in snapshot){
+      transactionList.add(Transactions(title: record["title"],
+      amount: record["amount"],
+      date:  record["date"])
+      )
+     }
      print (snapshot); 
-     return true;
+     return transactionList;
   }
 }
