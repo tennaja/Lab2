@@ -30,4 +30,13 @@ class TransactionDB{
     db.close();
     return keyID;
   }
+
+  loadAllData() async{
+     var db = await this.openDatabase();
+     var store = intMapStoreFactory.store("expense");
+     var snapshot = await store.find(db);
+     
+     print (snapshot); 
+     return true;
+  }
 }
